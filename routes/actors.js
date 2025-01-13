@@ -25,7 +25,6 @@ export let listaGlumaca = [
     },
 ];
 
-
 routerGlumci.get(
     '/',
     query('ime')
