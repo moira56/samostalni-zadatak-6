@@ -3,7 +3,7 @@ import moviesRouter from './routes/movies.js';
 import actorsRouter from './routes/actors.js';
 
 const server = express();
-const PORT = 3000;
+const PORT = 3001;
 
 server.use(express.json());
 

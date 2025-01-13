@@ -2,7 +2,7 @@ import express from 'express';
 import { pronadiGlumcaPoId } from '../middleware/actors.js';
 import { query, param, body, validationResult } from 'express-validator';
 
-const routerGlumci = express.Router();
+const router = express.Router();
 
 export let listaGlumaca = [
     {
@@ -25,7 +25,7 @@ export let listaGlumaca = [
     },
 ];
 
-routerGlumci.get(
+router.get(
     '/',
     query('ime')
         .optional()
@@ -55,8 +55,7 @@ routerGlumci.get(
     }
 );
 
-
-routerGlumci.get(
+router.get(
     '/:id',
     [
         param('id').isInt().withMessage('ID mora biti cijeli broj'),
@@ -74,8 +73,7 @@ routerGlumci.get(
     }
 );
 
-
-routerGlumci.post(
+router.post(
     '/',
     [
         body('ime')
@@ -108,7 +106,7 @@ routerGlumci.post(
     }
 );
 
-routerGlumci.patch(
+router.patch(
     '/:id',
     [
         body('ime')
@@ -147,4 +145,4 @@ routerGlumci.patch(
     }
 );
 
-export default routerGlumci;
+export default router;

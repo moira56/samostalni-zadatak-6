@@ -2,7 +2,7 @@ import express from 'express';
 import { pronadiFilmPoId } from '../middleware/movies.js';
 import { query, param, body, validationResult } from 'express-validator';
 
-const routerFilmovi = express.Router();
+const router = express.Router();
 
 export let filmovi = [
   {
@@ -28,7 +28,7 @@ export let filmovi = [
   },
 ];
 
-routerFilmovi.get(
+router.get(
   '/',
   [
     query('min_godina')
@@ -70,7 +70,7 @@ routerFilmovi.get(
   }
 );
 
-routerFilmovi.get(
+router.get(
   '/:id',
   [
     param('id').isInt().withMessage('ID mora biti cijeli broj'),
@@ -88,7 +88,7 @@ routerFilmovi.get(
   }
 );
 
-routerFilmovi.post(
+router.post(
   '/',
   [
     body('naziv')
@@ -133,7 +133,7 @@ routerFilmovi.post(
   }
 );
 
-routerFilmovi.patch(
+router.patch(
   '/:id',
   [
     body('naziv')
@@ -185,4 +185,4 @@ routerFilmovi.patch(
   }
 );
 
-export default routerFilmovi;
+export default router;
